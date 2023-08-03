@@ -1,21 +1,56 @@
 
    
-   <div class="container">   
-    <div class="row" style="height: 100vh">     
-       <div class="col-6"  *ngFor="let card of cards" (click)="onCardClick(card)">
+   <!-- <div class="container">   
+    <div class="row" style="background-color: rgb(202, 222, 222);">     
+       <div class="col-6 ali"  *ngFor="let card of products" (click)="onCardClick(card)">
          <div class="foodd bg-info">
              <img [src]="card.imageUrl" alt="" class="imgg" >
              <div class=" bg-info align-items-center cp-18">
                  <div class="title-9 text-white">{{ card.title }}</div>
              </div>
-             <a [routerLink]="['/card', card.id]">View Details</a>
  
          </div>   
        </div>
    </div>
+ </div> -->
+ <!-- <button (click)="onClearLocalStorageClick()" class="bg-danger mb-2 ml-3">Clear Local Storage</button> -->
+ 
+ 
+ 
+ 
+
+ <div class="bg-black-shade pt-50">
+  <div class="title-8 text-center text-color-white mb-28">Products</div>
+  <div class="cp-17">
+
+    <div class="row">
+      <div class="col-6 proCarddiv"  *ngFor="let card of displayedCards" >
+          <div class="fooddd">
+              <img [src]="card.imageUrl" alt="" class="img-responsive imgg">             
+          </div>
+          <div class="title-10 text-white">{{ card.title }}</div>
+          <div class="topprodes mb-14">{{card.description}} </div>
+          <div class=" d-flex justify-content-between align-items-center">
+            <div class="title-3 text-color-yellow">{{ card.price }}</div>
+            <button class="mybtn title-3 text-color-black-shade proCardCart br-6 cp-7" (click)="onCardClick(card)" >Add to Cart</button>
+          </div>
+      </div>
+  </div>
+  
+  
+  
  </div>
- <button (click)="onClearLocalStorageClick()" class="bg-danger mb-2 ml-3">Clear Local Storage</button>
- 
- 
- 
- 
+ <div class=" d-flex justify-content-between align-items-center">
+  <div class="title-3 text-color-yellow">
+    <div *ngIf="currentPage > 1">
+      <button class=" title-2 text-color-black-shade pronxtBtn br-6  ml-3 mt-4"  (click)="showPreviousPage()">Previous</button>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="pageCount" class="text-color-yellow mr-3">
+      <p class="mb-0">Page {{ currentPage }}/{{ totalPages }}</p>
+    </div>
+    <button class=" title-2 text-color-black-shade pronxtBtn br-6 mr-0" (click)="showNextPage()" *ngIf="hasNextPage">Next page</button>
+  </div>
+</div>
+</div>

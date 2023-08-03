@@ -1,0 +1,41 @@
+
+
+ <div class="bg-black-shade pt-40">
+        <div class="title-8 text-center text-color-white mb-28">Categories</div>
+        <div class="cp-17">
+
+          <div class="row">
+
+            <div class="col-6"  *ngFor="let card of categories" (click)="onCardClick(card)">
+                <div class="food-div">
+                    <img [src]="card.imageUrl" alt="" class="img-responsive imgg">
+                    <div class="food-div-content d-flex justify-content-between align-items-center cp-18 bgCard">
+                        <div class="title-9 text-white ">{{ card.name }}</div>
+                        <div class="ml-10">
+                            <img src="assets/images/arrow-right-white.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          
+            <div class="title-8 text-center text-color-white mb-40">Popular Cuisines</div>
+
+
+            <div class="pb-40" *ngFor="let card of producttop">
+
+                  <img [src]="card.imageUrl" alt="" class="img-responsive mb-10 topProduct">
+                  <div class="title-3 text-white mb-4px"> {{card.title}}</div>
+                  <div class="title-5 text-white mb-14">{{card.description}} </div>
+
+                  <div class=" d-flex justify-content-between align-items-center">
+                      <div class="title-3 text-color-yellow">{{ card.price }}</div>
+                      <button class="mybtn title-3 text-color-black-shade proCardCart br-6 cp-7" (click)="onCartAdd(card)" >Add to Cart</button>
+                  </div>
+
+          </div>
+
+        </div>
+    </div>
