@@ -1,0 +1,77 @@
+<div class="clearfix"></div>
+    <div class="bg-black-shade">
+        <div class="text-center">
+            <img src="assets/images/result.png" alt="" width="34px" class="mb-22">
+            <!-- <div class="title-12 text-white text-center mb-11">Order Completed</div>
+            <div class="title-10 text-white text-center mb-63">Thank you – your order has been received <br>and is on it’s way to you.</div>
+            <div class="cp-29 text-left">
+                <div class="title-2  text-white mb-10">Order Number: <b>17009</b></div>
+                <div class="title-2  text-white mb-10">Date: <b> {{ currentDate }}</b></div>
+                <div class="title-2  text-white mb-10">Total: <b>R {{TotalAmount + 100}}</b></div>
+                <div class="title-2  text-white mb-42">Payment Method: <b>R8Run A Tab8</b></div>
+            </div> -->
+            <div *ngIf="orderIdd">
+                <div class="title-12 text-white text-center mb-11">Order Completed</div>
+                <div class="title-10 text-white text-center mb-63">Thank you – your order has been received and is on its way to you.</div>
+                <div class="cp-29 text-left">
+                  <div class="title-2  text-white mb-10">Order Number: <b>{{ orderIdd }}</b></div>
+                  <div class="title-2  text-white mb-10">Date: <b>{{ currentDate }}</b></div>
+                  <div class="title-2  text-white mb-10">Total: <b>R {{ orderAmount }}</b></div>
+                  <div class="title-2  text-white ">Payment Method: <b>R8Run A Tab8</b></div>
+                </div>
+            </div>
+            <div *ngIf="!orderIdd">
+                <div class="title-1 text-white mb-28">Your Order</div>
+                <div *ngIf="TotalAmount == 0" class="title-2 text-white m-28">Your cart is empty, kindly browse our services and add to cart so will will be able to see submit order option</div>
+
+                <div class="cp-28 text-left">
+                <div class="order-table pb-15">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>Cafe Latte × 2</td>
+                                <td>R100</td>
+                            </tr>
+                            <tr>
+                                <td>Cafe Latte × 2</td>
+                                <td>R100</td>
+                            </tr> -->
+                            <tr *ngFor="let item of cartItems">
+                                <td>{{ item.title }} × {{ item.count }}</td>
+                                <td>R{{ item.price * item.count }}</td>
+                              </tr>
+                            <tr>
+                                <td>Additional Tip × 1</td>
+                                <td *ngIf="TotalAmount !== 0 && TotalAmount !== null" >R100</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>Subtotal</th>
+                                <th *ngIf="TotalAmount !== 0 && TotalAmount !== null" >R {{TotalAmount}}</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th *ngIf="TotalAmount !== 0 && TotalAmount !== null">R {{TotalAmount + 100}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+              </div>
+              <div  *ngIf="TotalAmount" class="cp-28 mt-3">
+                  <button  [disabled]="TotalAmount === 0 || TotalAmount === null" class="mybtn title-10 text-black bg-yellow br-5 cp-27 w-100" (click)="cartCheckOut()">Place Order</button>
+              </div>
+              
+                
+            </div>
+        </div>
+    </div>

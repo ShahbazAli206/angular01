@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { LocalStorageService } from '../../services/local-storage-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 
 interface Card {
@@ -28,8 +29,12 @@ export class ProductListComponent implements OnInit {
 
 
   private cardId!: number; 
-  constructor(private route: ActivatedRoute, private dataService: ProductsService, private http: HttpClient, private localStorageService: LocalStorageService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: ProductsService, private http: HttpClient, private localStorageService: LocalStorageService) {}
  
+  cartOpen(){
+    this.router.navigate(['/cart']);
+
+  }
  
   onCardClick(card: any) {
     this.localStorageService.addCard(card);

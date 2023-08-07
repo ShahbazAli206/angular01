@@ -9,6 +9,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { FooterComponent } from './components/footer/footer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { HeaderComponent } from './components/header/header.component';
     ProductListComponent,
     FooterComponent,
     NavBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent,
+    CheckOutComponent
   ],
 
   imports: [
@@ -25,7 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule
   ],
 
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 
 })

@@ -18,13 +18,21 @@
  
  
  
-
+ 
  <div class="bg-black-shade pt-50">
+  <div class=" d-flex justify-content-between align-items-center">
+
+    <div class="text-color-yellow mr-3">
+      <p class="mb-0"> </p>
+    </div>
+    <button class=" title-2 text-white pronxtBtn br-6 mr-0" (click)="cartOpen()" >Go to Cart</button>
+  </div>   
   <div class="title-8 text-center text-color-white mb-28">Products</div>
   <div class="cp-17">
 
     <div class="row">
       <div class="col-6 proCarddiv"  *ngFor="let card of displayedCards" >
+        <div>
           <div class="fooddd">
               <img [src]="card.imageUrl" alt="" class="img-responsive imgg">             
           </div>
@@ -34,6 +42,8 @@
             <div class="title-3 text-color-yellow">{{ card.price }}</div>
             <button class="mybtn title-3 text-color-black-shade proCardCart br-6 cp-7" (click)="onCardClick(card)" >Add to Cart</button>
           </div>
+
+        </div>
       </div>
   </div>
   
